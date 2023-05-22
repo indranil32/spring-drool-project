@@ -1,0 +1,19 @@
+template header
+id
+ifcondition
+thencondition
+
+import com.springproject.droolEngineProject.model.Order;
+import com.springproject.droolEngineProject.model.Rule;
+
+template "tmp1"
+
+rule "@{id}"
+  dialect "mvel"
+  when
+    @{ifcondition};
+  then
+    @{thencondition};
+end
+
+end template

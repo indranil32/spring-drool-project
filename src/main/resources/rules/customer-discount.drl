@@ -1,0 +1,29 @@
+package rules;
+
+import com.springproject.droolEngineProject.model.Order;
+
+dialect  "mvel"
+
+rule "MASTERCARD"
+    when
+        orderObject : Order(cardType == "MASTERCARD" && price > 10000);
+    then
+        System.out.println("MASTERCARD discount has been added");
+        orderObject.setDiscount(10);
+end;
+
+rule "VISA"
+    when
+        orderObject : Order(cardType == "VISA" && price > 5000);
+    then
+        System.out.println("VISA discount has been added");
+        orderObject.setDiscount(14);
+end;
+
+rule "RUPAY"
+    when
+        orderObject : Order(cardType == "RUPAY" && price > 3000);
+    then
+        System.out.println("RUPAY discount has been added");
+        orderObject.setDiscount(20);
+end;
